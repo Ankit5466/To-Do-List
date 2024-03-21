@@ -1,0 +1,22 @@
+<div class="my-3">
+    <h4>Add task's</h4>
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+        <div class="form-group">
+            <label for="title">Todo's Title</label>
+            <input type="text" [(ngModel)]="title" class="form-control" name="title" id="title" required>
+            <div *ngIf="todoForm.controls['title'].errors?.required && (todoForm.submitted || todoForm.controls['title'].touched)" class="text-danger">
+                Please add title.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desc">Todo's Description</label>
+            <input type="text" [(ngModel)]="desc" class="form-control" id="desc" name="desc" required>
+            <div *ngIf="todoForm.controls['desc'].errors?.required && (todoForm.submitted || todoForm.controls['desc'].touched)" class="text-danger">
+                please add Description.
+            </div>
+        </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-sm btn-primary">Add Todo</button>
+        </div>
+    </form>
+</div>
